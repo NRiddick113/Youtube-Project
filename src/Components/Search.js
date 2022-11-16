@@ -5,6 +5,8 @@ function Search() {
         <div>
             <input type='text' placeholder='Enter search'/>
             <input type='submit' />
+
+            <p>No Search Results Yet!, Please submit a search above!</p>
         </div>
     );
 }

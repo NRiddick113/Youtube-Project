@@ -1,0 +1,9 @@
+.navBar{
+    display: flex;
+    border: 2px solid red;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: stretch;
+    flex-direction: row;
+    align-items: baseline;
+}
