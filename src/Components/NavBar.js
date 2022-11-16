@@ -1,12 +1,28 @@
 import React from 'react';
+import { useNavigate } from 'react-router';
+import { Link } from 'react-router-dom';
 import './NavBar.css'
 
+
 function NavBar() {
+    
     return (
         <div className='navBar'>
-            <h1>Youtube </h1>  
-            <h2> Home </h2>
-            <h2> About </h2>
+            <h1>
+                <Link to="/">
+                Youtube   
+                </Link>
+            </h1>
+            <h2>
+                <Link to='/'>
+                Home
+                </Link>
+            </h2>
+            <h2>
+                <Link to="/about">
+                About
+                </Link>
+            </h2>
         </div>
     );
 }

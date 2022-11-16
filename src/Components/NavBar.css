@@ -1,9 +1,13 @@
 .navBar{
-    display: flex;
     border: 2px solid red;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    align-content: stretch;
-    flex-direction: row;
+    background-color: red;
     align-items: baseline;
+    display: grid;
+    grid-template-columns: 20% 8% 8%;
+    margin-bottom: 50px;
+}
+
+h1,
+h2 {
+    color: white;
 }
