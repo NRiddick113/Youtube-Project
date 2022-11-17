@@ -43,7 +43,9 @@ function Home() {
                 videos.map((video) => {
                     return (
                         <div>
+                            <button onClick={()=>{return}}>
                       <img src={video.snippet.thumbnails.medium.url} alt={text}></img>  
+                            </button>
                     <p>{video.snippet.title}</p>
                     </div>
                     )
