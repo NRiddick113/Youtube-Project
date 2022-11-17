@@ -1,16 +1,12 @@
 import React from 'react';
 import { useState } from 'react';
-import { useNavigate } from 'react-router';
-import { Link, useParams } from 'react-router-dom'
-import Video from './Video';
+import { Link } from 'react-router-dom'
 import './Home.css'
 
 function Home() {
 
     const [search, setSearch] = useState("")
     const [videos, setVideos] = useState([])
-    const { id } = useParams()
-    let navigate = useNavigate()
 
     const handleTextChange = (e) => {
         setSearch(e.target.value)
@@ -30,10 +26,6 @@ function Home() {
             .catch(err => console.log(err))
         }
         console.log(videos)
-    }
-
-    const handleClick = () => {
-        navigate(`/video/${id}`)
     }
 
     return (
