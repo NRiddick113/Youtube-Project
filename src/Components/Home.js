@@ -1,26 +1,27 @@
 import React from 'react';
 import { useState } from 'react';
+import { useNavigate } from 'react-router';
+import { Link, useParams } from 'react-router-dom'
 import Video from './Video';
 import './Home.css'
 
-
 function Home() {
 
-    const [text, setText] = useState("")
-    // const [search, setSearch] = useState("")
+    const [search, setSearch] = useState("")
     const [videos, setVideos] = useState([])
+    const { id } = useParams()
+    let navigate = useNavigate()
 
     const handleTextChange = (e) => {
-        setText(e.target.value)
+        setSearch(e.target.value)
     }
 
     const handleSubmit = () => {
-        // setSearch(text)
 
-        if (text === ""){
+        if (search === ""){
             setVideos([])
         } else { 
-            fetch(`https://youtube.googleapis.com/youtube/v3/search?q=${text}&key=${process.env.REACT_APP_API_KEY}&part=snippet`)
+            fetch(`https://youtube.googleapis.com/youtube/v3/search?q=${search}&key=${process.env.REACT_APP_API_KEY}&part=snippet`)
             .then(res => res.json())
             .then(res => {
                 console.log(res)
@@ -29,6 +30,10 @@ function Home() {
             .catch(err => console.log(err))
         }
         console.log(videos)
+    }
+
+    const handleClick = () => {
+        navigate(`/video/${id}`)
     }
 
     return (
@@ -42,12 +47,12 @@ function Home() {
             {
                 videos.map((video) => {
                     return (
-                        <div>
-                            <button onClick={()=>{return}}>
-                      <img src={video.snippet.thumbnails.medium.url} alt={text}></img>  
-                            </button>
-                    <p>{video.snippet.title}</p>
-                    </div>
+                        <div key={video.id.videoId} className='video'>
+                            <Link to={`/video/${video.id.videoId}`}>
+                                <img src={video.snippet.thumbnails.medium.url} alt={search} ></img>  
+                                <p>{video.snippet.title}</p>
+                            </Link>
+                        </div>
                     )
                 })
             }

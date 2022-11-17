@@ -13,3 +13,7 @@ a {
     color: white;
     text-decoration: none;
 }
+
+.video a {
+    color: black;
+}
