@@ -42,7 +42,10 @@ function Home() {
             {
                 videos.map((video) => {
                     return (
+                        <div>
+                      <img src={video.snippet.thumbnails.medium.url} alt={text}></img>  
                     <p>{video.snippet.title}</p>
+                    </div>
                     )
                 })
             }
