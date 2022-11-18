@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom'
 import './Home.css'
@@ -17,7 +17,7 @@ function Home() {
         if (search === ""){
             setVideos([])
         } else { 
-            fetch(`https://youtube.googleapis.com/youtube/v3/search?q=${search}&key=${process.env.REACT_APP_API_KEY}&part=snippet`)
+            fetch(`https://youtube.googleapis.com/youtube/v3/search?q=${search}&key=${process.env.REACT_APP_API_KEY}&part=snippet&maxResults=21`)
             .then(res => res.json())
             .then(res => {
                 // console.log(res)
@@ -28,10 +28,18 @@ function Home() {
         // console.log(videos)
     }
 
+    useEffect(() => {
+        fetch(`https://youtube.googleapis.com/youtube/v3/search?order=rating&regionCode=us&language=en&safeSearch=moderate&key=${process.env.REACT_APP_API_KEY}&part=snippet&maxResults=21`)
+            .then(res => res.json())
+            .then(res => setVideos(res.items))
+            .catch(err => console.log(err))
+    }, [])
+
     return (
         <div className='home'>
             <input type='text' placeholder='Enter search' onChange={handleTextChange} />
             <input type='submit' onClick={handleSubmit} />
+            <div className='searches'>
             {
                 //Error message if nothing searched
                 videos.length === 0 && <p>No Search Results Yet! Please submit a search above!</p> 
@@ -48,6 +56,7 @@ function Home() {
                     )
                 })
             }
+            </div>
         </div>
     );
 }
