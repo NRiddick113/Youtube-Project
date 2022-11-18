@@ -20,16 +20,16 @@ function Home() {
             fetch(`https://youtube.googleapis.com/youtube/v3/search?q=${search}&key=${process.env.REACT_APP_API_KEY}&part=snippet`)
             .then(res => res.json())
             .then(res => {
-                console.log(res)
+                // console.log(res)
                 setVideos(res.items)
             })
             .catch(err => console.log(err))
         }
-        console.log(videos)
+        // console.log(videos)
     }
 
     return (
-        <div>
+        <div className='home'>
             <input type='text' placeholder='Enter search' onChange={handleTextChange} />
             <input type='submit' onClick={handleSubmit} />
             {

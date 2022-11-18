@@ -2,15 +2,25 @@ import React from 'react';
 import { useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import YouTube from 'react-youtube';
+import './Video.css'
 
 function Video() {
     let { id } = useParams()
-    const [video, setVideo] = useState([])
+    const [video, setVideo] = useState({})
     const [allComments, setAllComments] = useState([])
     const [comment, setComment] = useState({
         name: "",
         comment: ""
     })
+
+    const opts = {
+        height: '390',
+        width: '640',
+        playerVars: {
+          // https://developers.google.com/youtube/player_parameters
+          autoplay: 1,
+        }
+    }
 
     const handleTextChange = (e) => {
         setComment({...comment, [e.target.id]:e.target.value})
@@ -18,8 +28,8 @@ function Video() {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-
         setAllComments([...allComments, comment])
+        setComment({name: "",comment: ""})
     }
 
     useEffect(() => {
@@ -34,10 +44,12 @@ function Video() {
 
     return (
         <div>
-            <YouTube videoId={id} />
-            {/* <p>{video.snippet.title}</p> */}
-            {/* <p><span>Description:</span> {video.snippet.description}</p> */}
-            <form onsubmit={handleSubmit}>
+            <YouTube videoId={id} opts={opts}/>
+           <h1>{video?.snippet?.title}</h1>
+            <button>👍🏽Like</button><button>👎🏽 Dislike</button> <button>Share</button>
+            <p><span>Description:</span> {video?.snippet?.description}</p>
+
+            <form onSubmit={handleSubmit}>
                 <label htmlFor='name'>Name</label>
                 <input type='text' placeholder='name' id='name' onChange={handleTextChange}/>
                 <br/>
@@ -50,7 +62,7 @@ function Video() {
             <ul>
                 {allComments.map(comment => {
                     return (
-                        <li><span>{comment.name}:</span> {comment.comment}</li>
+                        <li key={id}><span>{comment.name}:</span> {comment.comment}</li>
                     )
                 })}
             </ul>

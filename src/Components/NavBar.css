@@ -7,7 +7,6 @@
     margin-bottom: 50px;
 }
 
-h1,
-h2 {
+.navBar h1,h2 {
     color: white;
 }

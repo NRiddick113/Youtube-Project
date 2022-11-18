@@ -1,8 +1,8 @@
-div {
+.home {
     text-align: center;
 }
 
-p {
+.home p {
     font-size: 18px;
     margin-top: 25px;
     border: 1px solid black;
