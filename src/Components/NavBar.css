@@ -4,7 +4,6 @@
     align-items: baseline;
     display: grid;
     grid-template-columns: 20% 8% 8%;
-    margin-bottom: 50px;
     padding: 30px;
 }
 

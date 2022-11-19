@@ -17,7 +17,7 @@ function Home() {
         if (search === ""){
             setVideos([])
         } else { 
-            fetch(`https://youtube.googleapis.com/youtube/v3/search?q=${search}&key=${process.env.REACT_APP_API_KEY}&part=snippet&maxResults=21`)
+            fetch(`https://youtube.googleapis.com/youtube/v3/search?q=${search}&key=${process.env.REACT_APP_API_KEY}&part=snippet&maxResults=24`)
             .then(res => res.json())
             .then(res => {
                 // console.log(res)
@@ -29,7 +29,7 @@ function Home() {
     }
 
     useEffect(() => {
-        fetch(`https://youtube.googleapis.com/youtube/v3/search?order=rating&regionCode=us&language=en&safeSearch=moderate&key=${process.env.REACT_APP_API_KEY}&part=snippet&maxResults=21`)
+        fetch(`https://youtube.googleapis.com/youtube/v3/search?order=rating&safeSearch=moderate&key=${process.env.REACT_APP_API_KEY}&part=snippet&maxResults=24`)
             .then(res => res.json())
             .then(res => setVideos(res.items))
             .catch(err => console.log(err))
@@ -37,21 +37,22 @@ function Home() {
 
     return (
         <div className='home'>
-            <input type='text' placeholder='Enter search' onChange={handleTextChange} />
-            <input type='submit' onClick={handleSubmit} />
+            <input id='search' type='text' placeholder='Search by keywords' onChange={handleTextChange} />
+            <input id='submit' type='submit' onClick={handleSubmit} />
             <div className='searches'>
             {
                 //Error message if nothing searched
-                videos.length === 0 && <p>No Search Results Yet! Please submit a search above!</p> 
+                videos?.length === 0 && <p>No Search Results Yet! Please submit a search above!</p> 
             }
             {
-                videos.map((video) => {
+                videos?.map((video) => {
                     return (
                         <div key={video.id.videoId} className='video'>
                             <Link to={`/video/${video.id.videoId}`}>
                                 <img src={video.snippet.thumbnails.medium.url} alt={search} ></img>  
                                 <p>{video.snippet.title}</p>
                             </Link>
+                            <p>{video.snippet.channelTitle}</p>
                         </div>
                     )
                 })
