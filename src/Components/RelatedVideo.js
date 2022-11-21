@@ -7,7 +7,7 @@ function RelatedVideo() {
     const [relatedVideo, setRelatedVideo] = useState([])
 
     useEffect(() => {
-        fetch(`https://youtube.googleapis.com/youtube/v3/search?id=${id}&relatedToVideoId=${id}&type=video&key=${process.env.REACT_APP_API_KEY}&part=snippet`)
+        fetch(`https://youtube.googleapis.com/youtube/v3/search?id=${id}&relatedToVideoId=0-RZtb7mc_4&type=video&key=${process.env.REACT_APP_API_KEY}&part=snippet`)
             .then(res => res.json())
             .then(res => {
             setRelatedVideo(res.items)
