@@ -11,9 +11,12 @@ import {
     TwitterIcon,
     WhatsappIcon,
   } from "react-share";
+  import { useParams } from 'react-router-dom'
   import './ModalShare.css'
 
 function ModalShare({ setOpenModal }) {
+    let { id } = useParams()
+ let shareUrl = `https://extraordinary-pie-c5af24.netlify.app/video/${id}`
     return (
         <div className='modalBackgound'>
             <div className='modalContainer'>
@@ -21,14 +24,16 @@ function ModalShare({ setOpenModal }) {
                 <div className='title'> Please Share and Dont Forget to Like and Comment!</div>
                 <div className='body'>
                     <EmailIcon size={32} round={true}/>
-                    <EmailShareButton />
+                    <EmailShareButton 
+                    />
                     <FacebookIcon size={32} round={true}/>
                     <FacebookShareButton  />
                     <TwitterIcon size={32} round={true} />
                     <TwitterShareButton />
                     <WhatsappIcon size={32} round={true}/>
                     <WhatsappShareButton />
-                    <p>Copy Url</p>
+                    <br></br>
+                    <p>Copy Url: {shareUrl}</p>
                     </div>
                 <div className='footer'>
                     <button onClick={()=>{setOpenModal(false)}}>Cancel</button>

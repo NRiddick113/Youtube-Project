@@ -15,8 +15,8 @@ function RelatedVideo() {
             
         })    
         .catch(err => console.log(err))
-    }, [])
-    {console.log(relatedVideo, id)}
+    }, [id])
+    // {console.log(relatedVideo, id)}
     return (
         <div>
             {relatedVideo.length > 0 && relatedVideo.map((video)=>{

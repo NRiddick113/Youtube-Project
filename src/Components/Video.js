@@ -49,7 +49,7 @@ function Video() {
             // console.log(res.items[0])
             })    
             .catch(err => console.log(err))
-    }, [])
+    }, [id])
 
     return (
         <div>

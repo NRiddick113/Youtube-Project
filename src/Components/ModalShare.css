@@ -45,6 +45,9 @@
     font-size: 1.7rem;
     text-align: center;
   }
+  .modalContainer .body p{
+    color: black;
+  }
   
   .modalContainer .footer {
     flex: 20%;
@@ -65,6 +68,4 @@
     cursor: pointer;
   }
   
-  #cancelBtn {
-    background-color: crimson;
-  }
+ 
