@@ -4,11 +4,11 @@ import { useEffect, useState } from 'react'
 import YouTube from 'react-youtube';
 import RelatedVideo from './RelatedVideo';
 import './Video.css'
+import ModalShare from './ModalShare';
 
 function Video() {
     let { id } = useParams()
     const [video, setVideo] = useState({})
-    // const [relatedVideo, setRelatedVideo] = useState({})
     const [allComments, setAllComments] = useState([])
     const [comment, setComment] = useState({
         name: "",
@@ -17,6 +17,7 @@ function Video() {
     const [showDescription, setShowDescription] = useState(false);
     const [like, setLike] = useState(0)
     const [dislike, setDislike] = useState(0)
+    const [openModal,setOpenModal] = useState(false)
      
     function toggleDescription() {
       setShowDescription(!showDescription);
@@ -50,23 +51,13 @@ function Video() {
             .catch(err => console.log(err))
     }, [])
 
-    // useEffect(() => {
-    //     fetch(`https://youtube.googleapis.com/youtube/v3/search?id=${id}&relatedToVideoId=${id}&type=video&key=${process.env.REACT_APP_API_KEY}&part=snippet`)
-    //         .then(res => res.json())
-    //         .then(res => {
-    //         setRelatedVideo(res.items)
-    //         console.log(res.items)
-    //         })    
-    //         .catch(err => console.log(err))
-    // }, [])
-
     return (
         <div>
             <YouTube videoId={id} opts={opts}/>
            <h1>{video?.snippet?.title}</h1>
             <button onClick={()=>{setLike(like + 1)}}>👍🏽Likes {like}</button>
             <button onClick={()=>{setDislike(dislike + 1)}}>👎🏽 Dislikes {dislike}</button> 
-            <button className='share'>Share</button>
+            <button className='share' onClick={()=>{setOpenModal(true)}}>Share {openModal && <ModalShare setOpenModal={()=>{setOpenModal(false)}}/>}</button>
             <br></br>
             <button onClick={()=>{toggleDescription()}}>{!showDescription ? "Show Description..." : "Hide Descrpition..."}</button>
             {showDescription ? <p><span>Description:</span> {video?.snippet?.description}</p>: null}
@@ -90,7 +81,7 @@ function Video() {
             </ul>
             <div>
 
-            <RelatedVideo id={id}/>
+            <RelatedVideo />
             </div>
         </div>
     );

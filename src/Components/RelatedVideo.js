@@ -10,14 +10,16 @@ function RelatedVideo() {
         fetch(`https://youtube.googleapis.com/youtube/v3/search?id=${id}&relatedToVideoId=${id}&type=video&key=${process.env.REACT_APP_API_KEY}&part=snippet`)
             .then(res => res.json())
             .then(res => {
-            setRelatedVideo(res.items)
+            console.log(res)
+                setRelatedVideo(res.items)
+            
         })    
         .catch(err => console.log(err))
     }, [])
-    {console.log(relatedVideo)}
+    {console.log(relatedVideo, id)}
     return (
         <div>
-            {relatedVideo.map((video)=>{
+            {relatedVideo.length > 0 && relatedVideo.map((video)=>{
                 return(
                     <ul>
                         <li>

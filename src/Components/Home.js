@@ -31,7 +31,9 @@ function Home() {
     useEffect(() => {
         fetch(`https://youtube.googleapis.com/youtube/v3/search?order=rating&safeSearch=moderate&key=${process.env.REACT_APP_API_KEY}&part=snippet&maxResults=24`)
             .then(res => res.json())
-            .then(res => setVideos(res.items))
+            .then(res => {
+                console.log(res)
+                setVideos(res.items)})
             .catch(err => console.log(err))
     }, [])
 
