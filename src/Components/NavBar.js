@@ -8,7 +8,7 @@ import './NavBar.css'
 function NavBar() {
     const [loggedIn, setLoggedIn] = useState(false)
     const [openModal, setOpenModal] = useState(false)
-    const [username, setUsername] = useState({
+    const [info, setInfo] = useState({
       username: '',
       password: ''
     })
@@ -31,13 +31,14 @@ function NavBar() {
                 </Link>
             </h2>
             <button onClick={() => setOpenModal(true)}>
-                <h2>{loggedIn ? `Welcome back ${username.username}`: 'Login'}</h2>
+                <h2>{loggedIn ? `Welcome back ${info.username}`: 'Login'}</h2>
             </button>
             { openModal ? 
             <LoginModal 
-                username={setUsername}
-                setUsername={setUsername}
+                info={info}
+                setInfo={setInfo}
                 setLoggedIn={setLoggedIn}
+                setOpenModal={setOpenModal}
             /> : 
             null }
         </div>
