@@ -47,13 +47,6 @@ function Home({ openModal, username, setUsername, setLoggedIn }) {
                 //Error message if nothing searched
                 videos?.length === 0 && <p>No Search Results Yet! Please submit a search above!</p> 
             }
-            { openModal ? 
-            <LoginModal 
-                username={setUsername}
-                setUsername={setUsername}
-                setLoggedIn={setLoggedIn}
-            /> : 
-            null }
             {
                 videos?.map((video) => {
                     return (

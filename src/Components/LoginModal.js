@@ -2,18 +2,18 @@ import React from 'react';
 import { useState } from 'react';
 import './LoginModal.css'
 
-function LoginModal({ setOpenModal, username, setUsername, setLoggedIn }) {
+function LoginModal({ setOpenModal, info, setInfo, setLoggedIn }) {
     const [showPassword, setShowPassword] = useState(false)
 
     const handleTextChange = (e) => {
-        setUsername({...username,[e.target.id]:e.target.value})
-        console.log(username.username)
+        setInfo({...info,[e.target.id]:e.target.value})
+        console.log(info.username)
     }
 
     const handleSubmit = (e) => {
         e.preventDefault()
 
-        if(username.username.length && username.password.length){
+        if(info.username.length && info.password.length){
             setLoggedIn(true)
             setOpenModal(false)
         } else {
