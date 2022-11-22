@@ -1,10 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 import LoginModal from './LoginModal';
 import './NavBar.css'
 
 
-function NavBar({ setOpenModal, loggedIn, username}) {
+function NavBar() {
+    const [loggedIn, setLoggedIn] = useState(false)
+    const [openModal, setOpenModal] = useState(false)
+    const [username, setUsername] = useState({
+      username: '',
+      password: ''
+    })
 
     return (
         <div className='navBar'>
@@ -26,6 +33,13 @@ function NavBar({ setOpenModal, loggedIn, username}) {
             <button onClick={() => setOpenModal(true)}>
                 <h2>{loggedIn ? `Welcome back ${username.username}`: 'Login'}</h2>
             </button>
+            { openModal ? 
+            <LoginModal 
+                username={setUsername}
+                setUsername={setUsername}
+                setLoggedIn={setLoggedIn}
+            /> : 
+            null }
         </div>
     );
 }
