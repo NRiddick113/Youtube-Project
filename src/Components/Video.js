@@ -60,7 +60,8 @@ function Video() {
             </div>
             <button onClick={()=>{setLike(like + 1)}}>👍🏽Likes {like}</button>
             <button onClick={()=>{setDislike(dislike + 1)}}>👎🏽 Dislikes {dislike}</button> 
-            <button className='share' onClick={()=>{setOpenModal(true)}}>Share {openModal && <ModalShare setOpenModal={()=>{setOpenModal(false)}}/>}</button>
+            <button className='share' onClick={()=>{setOpenModal(true)}}>Share</button>
+            {openModal ? <ModalShare setOpenModal={setOpenModal}/>: null}
             <br></br>
             <button onClick={()=>{toggleDescription()}}>{!showDescription ? "Show Description..." : "Hide Descrpition..."}</button>
             {showDescription ? <p><span>Description:</span> {video?.snippet?.description}</p>: null}
