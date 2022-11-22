@@ -52,9 +52,12 @@ function Video() {
     }, [id])
 
     return (
-        <div>
+        <div className='videos'>
             <YouTube videoId={id} opts={opts}/>
+            <div className='relatedVideo'>
            <h1>{video?.snippet?.title}</h1>
+                    <RelatedVideo />
+            </div>
             <button onClick={()=>{setLike(like + 1)}}>👍🏽Likes {like}</button>
             <button onClick={()=>{setDislike(dislike + 1)}}>👎🏽 Dislikes {dislike}</button> 
             <button className='share' onClick={()=>{setOpenModal(true)}}>Share {openModal && <ModalShare setOpenModal={()=>{setOpenModal(false)}}/>}</button>
@@ -79,10 +82,6 @@ function Video() {
                         )
                     })}
             </ul>
-            <div>
-
-            <RelatedVideo />
-            </div>
         </div>
     );
 }
