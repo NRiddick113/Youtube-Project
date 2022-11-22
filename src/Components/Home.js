@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom'
+import LoginModal from './LoginModal';
 import './Home.css'
 
-function Home() {
+function Home({ openModal, username, setUsername, setLoggedIn }) {
 
     const [search, setSearch] = useState("")
     const [videos, setVideos] = useState([])
@@ -46,6 +47,13 @@ function Home() {
                 //Error message if nothing searched
                 videos?.length === 0 && <p>No Search Results Yet! Please submit a search above!</p> 
             }
+            { openModal ? 
+            <LoginModal 
+                username={setUsername}
+                setUsername={setUsername}
+                setLoggedIn={setLoggedIn}
+            /> : 
+            null }
             {
                 videos?.map((video) => {
                     return (

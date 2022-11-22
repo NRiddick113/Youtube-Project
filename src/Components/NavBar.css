@@ -3,10 +3,20 @@
     background-color: red;
     align-items: baseline;
     display: grid;
-    grid-template-columns: 20% 8% 8%;
+    grid-template-columns: 10vw 10vw 8vw 65vw;
     padding: 30px;
+    text-align: end;
 }
 
 .navBar h1,h2 {
     color: white;
+}
+
+.navBar button {
+    border: none;
+    background-color: red;
+    text-align: end;
+    width: 80px;
+    position: fixed;
+    right: 30px;
 }

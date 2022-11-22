@@ -1,0 +1,28 @@
+.loginModal {
+    background-color: white;
+    border: 2px solid black;
+    position: fixed;
+    margin-left: 25%;
+    width: 50%;
+    position: absolute;
+}
+
+.loginModal p {
+    color: black;
+}
+
+#x {
+    position: relative;
+    /* left: 220px; */
+    /* margin-right: 10px; */
+    margin-top: 15px;
+    margin-left: 20px;
+}
+
+#username {
+    margin-right: 10px;
+}
+
+.loginModal label {
+    padding-right: 10px;
+}
