@@ -12,6 +12,7 @@ import {
     WhatsappIcon,
   } from "react-share";
   import { useParams } from 'react-router-dom'
+  import {Link} from 'react-router-dom'
   import './ModalShare.css'
   
 
@@ -35,7 +36,7 @@ function ModalShare({ setOpenModal }) {
                         <WhatsappIcon size={32} round={true}/>
                         <WhatsappShareButton />
                         <br></br>
-                        <p>Copy Url: {shareUrl}</p>
+                        <p>Copy Url: <Link to={shareUrl}>{shareUrl}</Link></p>
                         </div>
                     <div className='footer'>
                         <button onClick={()=>{setOpenModal(false)}}>Cancel</button>
