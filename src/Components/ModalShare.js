@@ -26,15 +26,18 @@ function ModalShare({ setOpenModal }) {
                     <button onClick={()=>{setOpenModal(false)} }>X</button>
                     <div className='title'> Please Share and Dont Forget to Like and Comment!</div>
                     <div className='body'>
-                        <EmailIcon size={32} round={true}/>
-                        <EmailShareButton 
-                        />
-                        <FacebookIcon size={32} round={true}/>
-                        <FacebookShareButton  />
+                        <EmailShareButton url={shareUrl}>
+                            <EmailIcon size={32} round={true}/>
+                            </EmailShareButton>
+                         <FacebookShareButton url={shareUrl}>
+                         <FacebookIcon size={32} round={true}/>
+                         </FacebookShareButton>
+                         <TwitterShareButton url={shareUrl}>
                         <TwitterIcon size={32} round={true} />
-                        <TwitterShareButton />
+                        </TwitterShareButton>
+                        <WhatsappShareButton url={shareUrl}>
                         <WhatsappIcon size={32} round={true}/>
-                        <WhatsappShareButton />
+                        </WhatsappShareButton>
                         <br></br>
                         <p>Copy Url: <Link to={shareUrl}>{shareUrl}</Link></p>
                         </div>
