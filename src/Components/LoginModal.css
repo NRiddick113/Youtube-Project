@@ -3,26 +3,36 @@
     border: 2px solid black;
     position: fixed;
     margin-left: 25%;
+    margin-top: 15%;
     width: 50%;
     position: absolute;
 }
 
 .loginModal p {
     color: black;
+    text-align: center;
+    padding-bottom: 20px;
+    padding-top: 25px;
 }
 
 #x {
     position: relative;
-    /* left: 220px; */
-    /* margin-right: 10px; */
-    margin-top: 15px;
-    margin-left: 20px;
+    right: 20px;
+    top: 15px;
 }
 
 #username {
     margin-right: 10px;
+    margin: auto;
 }
 
 .loginModal label {
     padding-right: 10px;
+    color: black;
 }
+
+.loginModal #submit {
+    margin-right: auto;
+    margin-left: auto;
+}
+

@@ -14,33 +14,42 @@ function NavBar() {
     })
 
     return (
-        <div className='navBar'>
-            <h1>
-                <Link to="/">
-                YouTube   
-                </Link>
-            </h1>
-            <h2>
-                <Link to='/'>
-                Home
-                </Link>
-            </h2>
-            <h2>
-                <Link to="/about">
-                About
-                </Link>
-            </h2>
-            <button onClick={() => setOpenModal(true)}>
-                <h2>{loggedIn ? `Welcome back ${info.username}`: 'Login'}</h2>
-            </button>
-            { openModal ? 
-            <LoginModal 
-                info={info}
-                setInfo={setInfo}
-                setLoggedIn={setLoggedIn}
-                setOpenModal={setOpenModal}
-            /> : 
-            null }
+        <div>
+            <div className='navBar'>
+                <h1>
+                    <Link to="/">
+                    YouTube   
+                    </Link>
+                </h1>
+                <h2>
+                    <Link to='/'>
+                    Home
+                    </Link>
+                </h2>
+                <h2>
+                    <Link to="/about">
+                    About
+                    </Link>
+                </h2>
+                {
+                    !loggedIn ?
+                    <button id='login' onClick={() => setOpenModal(true)}>
+                        <h2>Login</h2>
+                    </button> :
+                    <h2>{info.username}</h2>
+
+                }
+            </div>
+            <div className='modal'>
+                { openModal ? 
+                <LoginModal 
+                    info={info}
+                    setInfo={setInfo}
+                    setLoggedIn={setLoggedIn}
+                    setOpenModal={setOpenModal}
+                /> : 
+                null }
+            </div>
         </div>
     );
 }
