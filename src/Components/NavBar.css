@@ -6,17 +6,21 @@
     grid-template-columns: 10vw 10vw 8vw 65vw;
     padding: 30px;
     text-align: end;
+    position: relative;
+    width: 100vw;
 }
 
 .navBar h1,h2 {
     color: white;
+    background-color: red;
 }
 
-.navBar button {
+#login {
     border: none;
     background-color: red;
     text-align: end;
     width: 80px;
-    position: fixed;
-    right: 30px;
+    position: absolute;
+    right: 120px;
+    top: 35px;
 }

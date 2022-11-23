@@ -30,7 +30,7 @@ function Home({ openModal, username, setUsername, setLoggedIn }) {
     }
 
     useEffect(() => {
-        fetch(`https://youtube.googleapis.com/youtube/v3/search?order=rating&safeSearch=moderate&key=${process.env.REACT_APP_API_KEY}&part=snippet&maxResults=24`)
+        fetch(`https://youtube.googleapis.com/youtube/v3/search?order=rating&safeSearch=moderate&relevanceLanguage=en&key=${process.env.REACT_APP_API_KEY}&part=snippet&maxResults=24`)
             .then(res => res.json())
             .then(res => {
                 console.log(res)
