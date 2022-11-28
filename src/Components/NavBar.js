@@ -7,11 +7,16 @@ import './NavBar.css'
 
 function NavBar() {
     const [loggedIn, setLoggedIn] = useState(false)
+    const [logout, setLogout] = useState(false)
     const [openModal, setOpenModal] = useState(false)
     const [info, setInfo] = useState({
       username: '',
       password: ''
     })
+
+    const logoutOption = () => {
+
+    }
 
     return (
         <div>
@@ -36,17 +41,23 @@ function NavBar() {
                     <button id='login' onClick={() => setOpenModal(true)}>
                         <h2>Login</h2>
                     </button> :
-                    <button className='username'>
+                    <button className='username' onClick={logoutOption}>
                         <h2>{info.username}</h2>
                     </button>
                 }
+            </div>
+            <div id='logout' className={logout ? 'show' : 'hidden'}>
+                <button>
+                    <h3>Log out</h3>
+                </button>
             </div>
             <div className='modal'> 
                 { openModal ? 
                 <LoginModal 
                     info={info}
                     setInfo={setInfo}
-                    setLoggedIn={setLoggedIn}                        setOpenModal={setOpenModal}
+                    setLoggedIn={setLoggedIn}
+                    setOpenModal={setOpenModal}
                 /> : 
                 null }
             </div>
