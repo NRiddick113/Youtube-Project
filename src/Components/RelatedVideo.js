@@ -1,6 +1,7 @@
 import React from 'react';
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
+import './RelatedVideo.css'
 
 function RelatedVideo() {
     let { id } = useParams()

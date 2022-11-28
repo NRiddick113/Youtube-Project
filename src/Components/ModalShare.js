@@ -21,9 +21,8 @@ function ModalShare({ setOpenModal }) {
  let shareUrl = `https://extraordinary-pie-c5af24.netlify.app/video/${id}`
     return (
         
-            <div className='modalBackgound'>
-                <div className='modalContainer'>
-                    <button onClick={()=>{setOpenModal(false)} }>X</button>
+            <div className='shareModal'>
+                    <button id='x' onClick={()=>{setOpenModal(false)} }>X</button>
                     <div className='title'> Please Share and Dont Forget to Like and Comment!</div>
                     <div className='body'>
                         <EmailShareButton url={shareUrl}>
@@ -38,14 +37,16 @@ function ModalShare({ setOpenModal }) {
                         <WhatsappShareButton url={shareUrl}>
                         <WhatsappIcon size={32} round={true}/>
                         </WhatsappShareButton>
-                        <br></br>
-                        <p>Copy Url: <Link to={shareUrl}>{shareUrl}</Link></p>
+                        <div className='url'>
+                        <p>Copy Url: <p className='link'>
+                            <Link to={shareUrl}>{shareUrl}</Link>
+                            </p>
+                            </p>
+                        </div>
                         </div>
                     <div className='footer'>
                         <button onClick={()=>{setOpenModal(false)}}>Cancel</button>
                     </div>
-                </div>
-                
             </div>
         
         );

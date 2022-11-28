@@ -53,11 +53,9 @@ function Video() {
 
     return (
         <div className='videos'>
+            <div className='video'>
             <YouTube videoId={id} opts={opts}/>
-            <div className='relatedVideo'>
-           <h1>{video?.snippet?.title}</h1>
-                    <RelatedVideo />
-            </div>
+           <h1 className='titles'>{video?.snippet?.title}</h1>
             <button onClick={()=>{setLike(like + 1)}}>👍🏽Likes {like}</button>
             <button onClick={()=>{setDislike(dislike + 1)}}>👎🏽 Dislikes {dislike}</button> 
             <button className='share' onClick={()=>{setOpenModal(true)}}>Share</button>
@@ -83,6 +81,10 @@ function Video() {
                         )
                     })}
             </ul>
+            </div>
+            <div className='relatedVideo'>
+                    <RelatedVideo />
+            </div>
         </div>
     );
 }
