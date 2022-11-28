@@ -7,7 +7,7 @@ import './NavBar.css'
 
 function NavBar() {
     const [loggedIn, setLoggedIn] = useState(false)
-    const [logout, setLogout] = useState(false)
+    const [showLogout, setShowLogout] = useState(false)
     const [openModal, setOpenModal] = useState(false)
     const [info, setInfo] = useState({
       username: '',
@@ -15,7 +15,12 @@ function NavBar() {
     })
 
     const logoutOption = () => {
+        setShowLogout(!showLogout)
+    }
 
+    const logout = () => {
+        setLoggedIn(false)
+        setShowLogout(false)
     }
 
     return (
@@ -45,9 +50,7 @@ function NavBar() {
                         <h2>{info.username}</h2>
                     </button>
                 }
-            </div>
-            <div id='logout' className={logout ? 'show' : 'hidden'}>
-                <button>
+                <button className={showLogout ? 'logout show' : 'logout hidden'} onClick={logout}>
                     <h3>Log out</h3>
                 </button>
             </div>
