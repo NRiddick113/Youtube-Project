@@ -1,14 +1,16 @@
 .about {
-    background-color: black;
-    padding-bottom: 70vh;
-    padding-top: 70px;
+    background-color: #000000;
+    
+}
+.developers{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
 
 .about p {
-    padding: 20px 300px; 
+    padding: 20px 50px; 
 }
 
 a {
     color: yellow;
 }
-
