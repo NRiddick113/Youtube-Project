@@ -10,6 +10,11 @@ function LoginModal({ setOpenModal, info, setInfo, setLoggedIn }) {
         console.log(info.username)
     }
 
+    const togglePassword = (e) => {
+        e.preventDefault()
+        setShowPassword(!showPassword)
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault()
 
@@ -35,7 +40,7 @@ function LoginModal({ setOpenModal, info, setInfo, setLoggedIn }) {
                     Password
                 </label>
                 <input type={showPassword ? 'text' : 'password'} id='password' onChange={handleTextChange} /> 
-                <button onClick={() => setShowPassword(!showPassword)}>{showPassword ? 'Hide Password' : 'Show Password'}</button> 
+                <button onClick={togglePassword}>{showPassword ? 'Hide Password' : 'Show Password'}</button> 
                 <br/>
                 <input type='submit' id='submit' />
             </form>

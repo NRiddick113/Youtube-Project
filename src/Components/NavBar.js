@@ -36,17 +36,17 @@ function NavBar() {
                     <button id='login' onClick={() => setOpenModal(true)}>
                         <h2>Login</h2>
                     </button> :
-                    <h2>{info.username}</h2>
-
+                    <button className='username'>
+                        <h2>{info.username}</h2>
+                    </button>
                 }
             </div>
-            <div className='modal'>
+            <div className='modal'> 
                 { openModal ? 
                 <LoginModal 
                     info={info}
                     setInfo={setInfo}
-                    setLoggedIn={setLoggedIn}
-                    setOpenModal={setOpenModal}
+                    setLoggedIn={setLoggedIn}                        setOpenModal={setOpenModal}
                 /> : 
                 null }
             </div>

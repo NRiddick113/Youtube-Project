@@ -25,7 +25,7 @@
     text-decoration: none;
 }
 
-p {
+.video p {
     color: white;
 }
 
@@ -37,21 +37,21 @@ p {
     margin-top: 50px;
 }
 
-img {
+.home img {
     border-radius: 20px;
     width: 270px;
     height: 150px;
     border: 2px solid white;
 }
 
-#search {
+.home #search {
     width: 400px;
     height: 30px;
     border-radius: 50px;
     text-align: center;
 }
 
-#submit {
+.home #submit {
     margin-left: 25px;
     background-color: red;
     color: white;

@@ -15,7 +15,8 @@
     background-color: red;
 }
 
-#login {
+#login,
+.navBar .username {
     border: none;
     background-color: red;
     text-align: end;
@@ -23,4 +24,13 @@
     position: absolute;
     right: 120px;
     top: 35px;
+}
+
+.background {
+    background-color: black;
+}
+
+.modal {
+    background-color: black;
+    padding-top: 50px;
 }
