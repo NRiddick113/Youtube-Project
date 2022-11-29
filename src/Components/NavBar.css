@@ -24,7 +24,7 @@
     width: 80px;
     position: absolute;
     right: 120px;
-    top: 35px;
+    top: 30px;
     align-items: baseline;
 }
 
@@ -46,8 +46,11 @@
     color: white;
     width: 300px;
     height: 40px;
-    /* padding: 15px 0px; */
-    /* margin-right: 0px; */
-    transform: translate(235%, 155%);
+    position: absolute;
+    right: 0px;
+    top: 79px;
+    border-right: red;
+    /* transform: translate(0, -20px); */
+    /* transition: down 10s; */
      
 }
