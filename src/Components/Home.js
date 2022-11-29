@@ -53,9 +53,9 @@ function Home({ openModal, username, setUsername, setLoggedIn }) {
                         <div key={video.id.videoId} className='video'>
                             <Link to={`/video/${video.id.videoId}`}>
                                 <img src={video.snippet.thumbnails.medium.url} alt={search} ></img>  
-                                <p>{video.snippet.title}</p>
+                                <p className='title'>{video.snippet.title}</p>
                             </Link>
-                            <p>{video.snippet.channelTitle}</p>
+                            <p className='channel'>{video.snippet.channelTitle}</p>
                         </div>
                     )
                 })
