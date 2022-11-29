@@ -22,11 +22,14 @@ a {
     text-align: center;
 }
 
-.Kylie img {
+.Kylie img,
+.Natasha img {
     height: 380px;
     width: 300px;
+    padding-bottom: 25px;
+    margin-left: 28%;
 }
 
-img {
-    padding-bottom: 25px;
+.Kylie img {
+    padding-bottom: 30px;
 }
