@@ -1,0 +1,14 @@
+#relatedVideo img{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+}
+#relatedVideo button{
+border: 2px solid blue;
+display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
