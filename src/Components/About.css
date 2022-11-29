@@ -5,6 +5,7 @@
 .developers{
     display: grid;
     grid-template-columns: 1fr 1fr;
+    padding-top: 30px;
 }
 
 .about p {
@@ -13,4 +14,19 @@
 
 a {
     color: yellow;
+}
+
+.intro {
+    font-size: 20px;
+    margin: 0px 100px;
+    text-align: center;
+}
+
+.Kylie img {
+    height: 380px;
+    width: 300px;
+}
+
+img {
+    padding-bottom: 25px;
 }
