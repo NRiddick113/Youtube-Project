@@ -39,11 +39,11 @@ function Home() {
         <div className='home'>
             <input id='search' type='text' placeholder='Search by keywords' onChange={handleTextChange} />
             <input id='submit' type='submit' onClick={handleSubmit} />
-            <div className='searches'>
             {
                 //Error message if nothing searched
-                videos?.length === 0 && <p>No Search Results Yet! Please submit a search above!</p> 
+                videos?.length === 0 && <p id='error'>No Search Results Yet! Please submit a search above!</p> 
             }
+            <div className='searches'>
             {
                 videos?.map((video) => {
                     return (

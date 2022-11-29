@@ -18,6 +18,7 @@
 .navBar a {
     color: white;
     text-decoration: none;
+    background-color: red;
 }
 
 .video a {
@@ -53,6 +54,7 @@
     height: 30px;
     border-radius: 50px;
     text-align: center;
+    background-color: white;
 }
 
 .home #submit {
@@ -75,6 +77,11 @@
 
 .home .title:hover {
     text-decoration: underline;
+}
+
+#error {
+    padding-top: 30px;
+    padding-bottom: 60vh;
 }
 
 @media (max-width: 1100px) {
