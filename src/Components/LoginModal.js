@@ -18,7 +18,7 @@ function LoginModal({ setOpenModal, info, setInfo, setLoggedIn }) {
     const handleSubmit = (e) => {
         e.preventDefault()
 
-        if(info.username.length && info.password.length){
+        if (info.username.length && info.password.length){
             setLoggedIn(true)
             setOpenModal(false)
         } else {

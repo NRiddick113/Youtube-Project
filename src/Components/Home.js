@@ -1,10 +1,9 @@
 import React, { useEffect } from 'react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom'
-import LoginModal from './LoginModal';
 import './Home.css'
 
-function Home({ openModal, username, setUsername, setLoggedIn }) {
+function Home() {
 
     const [search, setSearch] = useState("")
     const [videos, setVideos] = useState([])
@@ -21,12 +20,10 @@ function Home({ openModal, username, setUsername, setLoggedIn }) {
             fetch(`https://youtube.googleapis.com/youtube/v3/search?q=${search}&key=${process.env.REACT_APP_API_KEY}&part=snippet&maxResults=24`)
             .then(res => res.json())
             .then(res => {
-                // console.log(res)
                 setVideos(res.items)
             })
             .catch(err => console.log(err))
         }
-        // console.log(videos)
     }
 
     useEffect(() => {
